@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="alert alert-danger" *ngIf="error">
+        <p>{{ error }}</p>
+      </div>
+      <div *ngIf="isLoading" style="text-align: center;">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+      <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm.value)"  *ngIf="!isLoading">
+        <div class="form-group">
+          <label for="identityNumber">Kimlik No</label>
+          <input
+            type="text"
+            class="form-control"
+            id="identityNumber"
+            required
+            ngModel
+            name="identityNumber"
+          />
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!postForm.valid"
+        >
+          Sorgula
+        </button>
+
+      </form>
+    </div>
+  </div>
+  <hr />
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="alert alert-success" *ngIf="score">
+        <p> Your score is {{score}}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: GATEWAY-SERVICE
+
+cloud:
+  gateway:
+    routes:
+      - id: API-SERVICE
+        uri: lb://API-SERVICE
+        predicates:
+          - PATH=api/**
+      - id: CITY-SCORE-SERVICE
+        uri: lb://CITY-SCORE-SERVICE
+        predicates:
+          - PATH=city-score/**
+      - id: IDENTITY-SCORE-SERVICE
+        uri: lb://IDENTITY-SCORE-SERVICE
+        predicates:
+        - PATH=identity-score/**
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost

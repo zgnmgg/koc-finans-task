@@ -1,0 +1,40 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: API-SERVICE
+  datasource:
+    url: jdbc:postgresql://ec2-54-87-34-201.compute-1.amazonaws.com/d282u2o70av3df
+    username: dnxefbukwnniwx
+    password: 02ff97b092ad0d3ebac1b466e49852efc23c05d0e2488666b98f8b8777304731
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 2
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        format_sql: true
+        id:
+          new_generator_mappings: false
+        temp:
+          use_jdbc_metadata_defaults: false
+        jdbc:
+          time_zone: Europe/Istanbul
+  jackson:
+    time-zone: Europe/Istanbul
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost

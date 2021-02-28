@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <form #postForm="ngForm" (ngSubmit)="onCreatePost(postForm.value)">
+        <div class="form-group">
+          <label for="identityNumber">Kimlik No</label>
+          <input
+            type="text"
+            class="form-control"
+            id="identityNumber"
+            required
+            ngModel
+            name="identityNumber"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">İsim</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            required
+            ngModel
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="surname">Soyisim</label>
+          <input
+            type="text"
+            class="form-control"
+            id="surname"
+            required
+            ngModel
+            name="surname"
+          />
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefon:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            required
+            ngModel
+            name="phone"
+          />
+        </div>
+        <div class="form-group">
+          <label for="income">Aylık Gelir</label>
+          <select id="income" name="income" [(ngModel)]="incomes"
+                  required
+                  class="form-control">
+            <option *ngFor="let i of incomes" [value]="i.code" [selected]="i.code === 2">
+              {{i.description}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="city">Şehir</label>
+          <select id="city" name="city" [(ngModel)]="cityModel"
+                  required
+                  class="form-control">
+            <option *ngFor="let c of cityModel" [value]="c.code"  [selected]="c.code === 'i02'">
+              {{c.name}}
+            </option>
+          </select>
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="!postForm.valid"
+        >
+          Skoru Al!
+        </button>
+
+      </form>
+    </div>
+  </div>
+  <hr />
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="alert alert-success" *ngIf="score">
+        <p> Your score is {{score}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

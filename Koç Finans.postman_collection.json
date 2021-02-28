@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "0082ca28-a289-4699-8a0d-56728ad3b09a",
+		"name": "Koç Finans",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Identity Score Service",
+			"item": [
+				{
+					"name": "Get Score",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8083/identity-score/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"identity-score",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "City Score Service",
+			"item": [
+				{
+					"name": "Get Score",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/city-score/i07",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"city-score",
+								"i07"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Api Service",
+			"item": [
+				{
+					"name": "Add User Score",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identityNumber\": \"Identity\",\n    \"name\": \"Özgün\",\n    \"surname\": \"Gökşenli\",\n    \"income\": \"3\",\n    \"city\": \"i07\",\n    \"phone\": \"905394505757\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/add-user",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"add-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Score",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/score/402138584946",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"score",
+								"402138584946"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Income",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/income/all",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"income",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
